@@ -1,2 +1,6 @@
-# go-types
-Common data types and structs written in Go
+# types
+
+Common data structs and types, written in Go
+
+- [x] Singly Linked List
+- [x] Binary Tree
