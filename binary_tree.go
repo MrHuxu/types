@@ -66,7 +66,7 @@ func BuildTree(vals []interface{}) *TreeNode {
 //         8   9
 func (node *TreeNode) String() string {
 	if node == nil {
-		return "[nil]"
+		return "<nil>"
 	}
 
 	var levels [][]string

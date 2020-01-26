@@ -68,7 +68,7 @@ func BuildTreeWithParent(vals []interface{}) *TreeNodeWithParent {
 //         8   9
 func (node *TreeNodeWithParent) String() string {
 	if node == nil {
-		return "[nil]"
+		return "<nil>"
 	}
 
 	var levels [][]string

@@ -30,7 +30,7 @@ func BuildList(vals []int) *ListNode {
 // 1->2->3->4->5
 func (node *ListNode) String() string {
 	if node == nil {
-		return "nil"
+		return "<nil>"
 	}
 
 	var vals []string
