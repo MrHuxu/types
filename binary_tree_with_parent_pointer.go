@@ -5,32 +5,33 @@ import (
 	"strings"
 )
 
-// TreeNode defines the struct of a node in a numeric binary tree
-type TreeNode struct {
+// TreeNodeWithParentPointer defines the struct of a node in a numeric binary tree
+type TreeNodeWithParentPointer struct {
 	Val int
 
-	Left, Right *TreeNode
+	Parent, Left, Right *TreeNodeWithParentPointer
 }
 
 // BuildTree builds a binary tree by the given numeric values
-func BuildTree(vals []interface{}) *TreeNode {
+func BuildTree(vals []interface{}) *TreeNodeWithParentPointer {
 	if len(vals) == 0 {
 		return nil
 	}
 
-	root := &TreeNode{Val: vals[0].(int)}
+	root := &TreeNodeWithParentPointer{Val: vals[0].(int)}
 	vals = vals[1:len(vals)]
 
-	level := []*TreeNode{root}
+	level := []*TreeNodeWithParentPointer{root}
 	for len(vals) != 0 {
-		var nextLevel []*TreeNode
+		var nextLevel []*TreeNodeWithParentPointer
 
 		for _, node := range level {
 			if node != nil && len(vals) != 0 {
 				if vals[0] == nil {
 					nextLevel = append(nextLevel, nil)
 				} else {
-					node.Left = &TreeNode{Val: vals[0].(int)}
+					node.Left = &TreeNodeWithParentPointer{Val: vals[0].(int)}
+					node.Left.Parent = node
 					nextLevel = append(nextLevel, node.Left)
 				}
 				vals = vals[1:len(vals)]
@@ -41,7 +42,8 @@ func BuildTree(vals []interface{}) *TreeNode {
 					if vals[0] == nil {
 						nextLevel = append(nextLevel, nil)
 					} else {
-						node.Right = &TreeNode{Val: vals[0].(int)}
+						node.Right = &TreeNodeWithParentPointer{Val: vals[0].(int)}
+						node.Right.Parent = node
 						nextLevel = append(nextLevel, node.Right)
 					}
 					vals = vals[1:len(vals)]
@@ -64,17 +66,17 @@ func BuildTree(vals []interface{}) *TreeNode {
 //   4       5       6       7
 //          / \
 //         8   9
-func (node *TreeNode) String() string {
+func (node *TreeNodeWithParentPointer) String() string {
 	if node == nil {
 		return "[nil]"
 	}
 
 	var levels [][]string
 
-	level := []*TreeNode{node}
+	level := []*TreeNodeWithParentPointer{node}
 	for {
 		var strs []string
-		var nextLevel []*TreeNode
+		var nextLevel []*TreeNodeWithParentPointer
 
 		for _, node := range level {
 			if node == nil {

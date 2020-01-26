@@ -7,7 +7,8 @@ import (
 
 // ListNode defines the struct of a node in numeric list
 type ListNode struct {
-	Val  int
+	Val int
+
 	Next *ListNode
 }
 
@@ -25,6 +26,8 @@ func BuildList(vals []int) *ListNode {
 }
 
 // String formats the print content of a node
+// the data will be outputed like a REAL list in console
+// 1->2->3->4->5
 func (node *ListNode) String() string {
 	if node == nil {
 		return "nil"
