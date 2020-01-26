@@ -5,29 +5,34 @@ type Queue struct {
 	data []interface{}
 }
 
+// Size returns the size of the queue
+func (q *Queue) Size() int {
+	return len(q.data)
+}
+
 // Enqueue puts an item to the tail of the queue
-func (s *Queue) Enqueue(x interface{}) {
-	s.data = append(s.data, x)
+func (q *Queue) Enqueue(x interface{}) {
+	q.data = append(q.data, x)
 }
 
 // Dequeue gets an item from the head of the queue
-func (s *Queue) Dequeue() (x interface{}) {
-	if len(s.data) == 0 {
+func (q *Queue) Dequeue() (x interface{}) {
+	if len(q.data) == 0 {
 		return
 	}
 
-	x = s.data[0]
-	s.data = s.data[1:len(s.data)]
+	x = q.data[0]
+	q.data = q.data[1:len(q.data)]
 	return
 }
 
 // Peek returns the item at the head of the queue
 // and doesn't make any change the queue itself
-func (s *Queue) Peek() (x interface{}) {
-	if len(s.data) == 0 {
+func (q *Queue) Peek() (x interface{}) {
+	if len(q.data) == 0 {
 		return
 	}
 
-	x = s.data[0]
+	x = q.data[0]
 	return
 }

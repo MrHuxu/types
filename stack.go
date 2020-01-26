@@ -1,8 +1,13 @@
 package types
 
 // Stack defines the struct of a FILO stack
-type Stack struct{
+type Stack struct {
 	data []interface{}
+}
+
+// Size returns the size of the stack
+func (s *Stack) Size() int {
+	return len(s.data)
 }
 
 // Push puts an item to the top of the stack
