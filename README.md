@@ -6,3 +6,4 @@ Common data structs and types, written in Go
 - [x] [Binary Tree](https://github.com/MrHuxu/types/blob/master/binary_tree.go)
 - [x] [Binary Tree with Parent Pointer](https://github.com/MrHuxu/types/blob/master/binary_tree_with_parent_pointer.go)
 - [x] [Stack](https://github.com/MrHuxu/types/blob/master/stack.go)
+- [x] [Queue](https://github.com/MrHuxu/types/blob/master/queue.go)

@@ -5,12 +5,12 @@ type Stack struct{
 	data []interface{}
 }
 
-// Push pushes an item into the stack
+// Push puts an item to the top of the stack
 func (s *Stack) Push(x interface{}) {
 	s.data = append(s.data, x)
 }
 
-// Pop pops an item out from the top of the stack
+// Pop gets an item from the top of the stack
 func (s *Stack) Pop() (x interface{}) {
 	if len(s.data) == 0 {
 		return
