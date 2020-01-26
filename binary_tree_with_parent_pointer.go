@@ -5,32 +5,32 @@ import (
 	"strings"
 )
 
-// TreeNodeWithParentPointer defines the struct of a node in a numeric binary tree
-type TreeNodeWithParentPointer struct {
+// TreeNodeWithParent defines the struct of a node in a numeric binary tree
+type TreeNodeWithParent struct {
 	Val int
 
-	Parent, Left, Right *TreeNodeWithParentPointer
+	Parent, Left, Right *TreeNodeWithParent
 }
 
-// BuildTreeWithParentPointer builds a binary tree by the given numeric values
-func BuildTreeWithParentPointer(vals []interface{}) *TreeNodeWithParentPointer {
+// BuildTreeWithParent builds a binary tree by the given numeric values
+func BuildTreeWithParent(vals []interface{}) *TreeNodeWithParent {
 	if len(vals) == 0 {
 		return nil
 	}
 
-	root := &TreeNodeWithParentPointer{Val: vals[0].(int)}
+	root := &TreeNodeWithParent{Val: vals[0].(int)}
 	vals = vals[1:len(vals)]
 
-	level := []*TreeNodeWithParentPointer{root}
+	level := []*TreeNodeWithParent{root}
 	for len(vals) != 0 {
-		var nextLevel []*TreeNodeWithParentPointer
+		var nextLevel []*TreeNodeWithParent
 
 		for _, node := range level {
 			if node != nil && len(vals) != 0 {
 				if vals[0] == nil {
 					nextLevel = append(nextLevel, nil)
 				} else {
-					node.Left = &TreeNodeWithParentPointer{Val: vals[0].(int)}
+					node.Left = &TreeNodeWithParent{Val: vals[0].(int)}
 					node.Left.Parent = node
 					nextLevel = append(nextLevel, node.Left)
 				}
@@ -42,7 +42,7 @@ func BuildTreeWithParentPointer(vals []interface{}) *TreeNodeWithParentPointer {
 					if vals[0] == nil {
 						nextLevel = append(nextLevel, nil)
 					} else {
-						node.Right = &TreeNodeWithParentPointer{Val: vals[0].(int)}
+						node.Right = &TreeNodeWithParent{Val: vals[0].(int)}
 						node.Right.Parent = node
 						nextLevel = append(nextLevel, node.Right)
 					}
@@ -66,17 +66,17 @@ func BuildTreeWithParentPointer(vals []interface{}) *TreeNodeWithParentPointer {
 //   4       5       6       7
 //          / \
 //         8   9
-func (node *TreeNodeWithParentPointer) String() string {
+func (node *TreeNodeWithParent) String() string {
 	if node == nil {
 		return "[nil]"
 	}
 
 	var levels [][]string
 
-	level := []*TreeNodeWithParentPointer{node}
+	level := []*TreeNodeWithParent{node}
 	for {
 		var strs []string
-		var nextLevel []*TreeNodeWithParentPointer
+		var nextLevel []*TreeNodeWithParent
 
 		for _, node := range level {
 			if node == nil {
