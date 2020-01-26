@@ -60,7 +60,7 @@ func BuildTree(vals []interface{}) *TreeNode {
 }
 
 // String formats the print content of a node
-// the tree with values [1, 2, 3, 4, 5, 6, 7, nil, nil, 8, 9] will be outputed like a REAL tree in console
+// the data will be outputed like a REAL tree in console
 //               1
 //           /       \
 //       2               3
