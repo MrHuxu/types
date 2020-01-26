@@ -12,8 +12,8 @@ type TreeNodeWithParentPointer struct {
 	Parent, Left, Right *TreeNodeWithParentPointer
 }
 
-// BuildTree builds a binary tree by the given numeric values
-func BuildTree(vals []interface{}) *TreeNodeWithParentPointer {
+// BuildTreeWithParentPointer builds a binary tree by the given numeric values
+func BuildTreeWithParentPointer(vals []interface{}) *TreeNodeWithParentPointer {
 	if len(vals) == 0 {
 		return nil
 	}
