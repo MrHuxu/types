@@ -85,9 +85,6 @@ func (m *MaxHeap) Peek() (x interface{}) {
 	if len(m.data) == 0 {
 		return
 	}
-	reorder(m.data, func(a, b int) bool {
-		return a > b
-	})
 
 	x = m.data[0]
 	return
