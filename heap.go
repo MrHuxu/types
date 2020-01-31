@@ -36,7 +36,7 @@ func (m *MinHeap) Pop() (x int) {
 
 // Peek returns the item at the top of the heap
 // and doesn't make any change the stack itself
-func (m *MinHeap) Peek() (x interface{}) {
+func (m *MinHeap) Peek() (x int) {
 	if len(m.data) == 0 {
 		return
 	}
@@ -81,7 +81,7 @@ func (m *MaxHeap) Pop() (x int) {
 
 // Peek returns the item at the top of the heap
 // and doesn't make any change the stack itself
-func (m *MaxHeap) Peek() (x interface{}) {
+func (m *MaxHeap) Peek() (x int) {
 	if len(m.data) == 0 {
 		return
 	}
